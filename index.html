@@ -1,0 +1,255 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iel Cunanan -- Web Developer</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <!-- Fallback links for D3 -->
+    <script src="https://fastcdn.org/D3.js/3.5.6/d3.min.js"></script>
+    <script src="scripts/d3.v3.min.js"></script>
+
+    <!-- Link for icons -->
+    <script src="https://use.fontawesome.com/6dbefe88fd.js"></script>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div class="parallax-container valign-wrapper">
+      <div class="container center-align">
+        <div class="row">
+          <div class="valign">
+            <h1 id="banner-title" class="thin-text blue-text">Iel Cunanan</h1>
+            <h4 class="tlt white-text">Front-end web developer / designer</h4>
+          </div>
+        </div>
+        <div id="nav">
+          <ul>
+            <li><a class="waves-effect btn-large hoverable blue accent-3" href="#skill">Skillset</a></li>
+            <li><a class="waves-effect btn-large hoverable blue accent-3" href="#about">About</a></li>
+            <li><a class="waves-effect btn-large hoverable blue accent-3" href="#gallery">Gallery</a></li>
+            <li><a class="waves-effect btn-large hoverable blue accent-3" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+        <div id="pbackground" style="background-image: url('images/webbg.jpg');" class="parallax">
+        </div>
+  </div>
+ 
+ <div id="skill" class="container section-header center-align">
+    <h3>Skillset</h3>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="container valign center-align">
+    <script type="text/javascript">
+    var width,
+        height,
+        radius;
+
+    //Use window.innerWidth as control flow for SVG
+    //Does NOT work for IE8 or earlier versions
+    if (window.innerWidth < 500) {
+        width = 460;
+        height = 300;
+        radius = Math.min(width, height) / 2;
+    }
+    else if (window.innerWidth > 499 && window.innerWidth < 992) {
+        width = 860;
+        height = 400;
+        radius = Math.min(width, height) / 2;
+    }
+    else {
+        width = 960;
+        height = 500;
+        radius = Math.min(width, height) / 2;
+    }
+    console.log(window.innerWidth);
+    
+
+    var color = d3.scale.ordinal()
+        .range(['#98abc5', '#8a89a6', '#7b6888', '#6b486b', '#a05d56', '#d0743c', '#ff8c00']);
+
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(radius - 70);
+
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.population; });
+
+    var svg = d3.select('body').append('svg')
+        .attr('width', width)
+        .attr('height', height)
+      .append('g')
+        .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+
+    d3.csv('data.csv', type, function(error, data) {
+      if (error) throw error;
+
+      var g = svg.selectAll('.arc')
+          .data(pie(data))
+        .enter().append('g')
+          .attr('class', 'arc');
+
+      g.append('path')
+          .attr('d', arc)
+          .style('fill', function(d) { return color(d.data.age); });
+
+      g.append('text')
+          .attr('transform', function(d) { return 'translate(' + arc.centroid(d) + ')'; })
+          .attr('dy', '.35em')
+          .text(function(d) { return d.data.age; });
+    });
+
+    function type(d) {
+      d.population = +d.population;
+      return d;
+    }
+
+    </script>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div id="gallery" class="section-header center-align">
+        <h3>Project Works</h3>
+        <div class="divider"></div>
+      </div>
+      <div id="gallery"></div>
+      <div class="col l4 m6 s12">
+        <div class="card">
+            <div class="card-image">
+              <a href="portfolio_piece1/finalproject.html"><img class="pieces" src="images/port_1resize.png"></a>
+            </div>
+            <div class="card-content">
+              <p>Small animation displaying various objects according to user input.</p>
+            </div>
+          </div>
+      </div>
+      <div class="col l4 m6 s12">
+        <div class="card">
+            <div class="card-image">
+              <a href="portfolio_piece2/animation_demo.html"><img class="pieces" src="images/port_2resize.png"></a>
+            </div>
+            <div class="card-content">
+              <p>Animated logo made with JavaScript and jQuery.</p>
+            </div>
+          </div>
+      </div>
+      <div class="col l4 m6 s12">
+        <div class="card">
+            <div class="card-image">
+              <a href="portfolio_piece3/Full_Power_Duo_Magazine1.png"><img class="pieces" src="images/Full_Power_Duo_Magazine1.png"></a>
+            </div>
+            <div class="card-content">
+              <p>A fictional magazine project.<br> Made with Photoshop.</p>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+
+  <!--
+    <div class="col l4 m6 s12">
+      <div class="card">
+          <div class="card-image">
+            <a href="portfolio_piece4/CunananIel3C-Sector.jpg"><img class="pieces" src="images/port_4resize.png"></a>
+          </div>
+          <div class="card-content">
+            <p>Brand Logo made with Photoshop.</p>
+          </div>
+        </div>
+    </div> -->
+    <div class="col l4 m6 s12">
+      <div class="card">
+          <div class="card-image">
+            <a href="portfolio_piece5/index.html"><img class="pieces" src="images/port_5resize.png"></a>
+          </div>
+          <div class="card-content">
+            <p>First web application</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div id="about" class="section-header center-align">
+        <h3>About Me</h3>
+        <div class="divider"></div>
+      </div>
+      <div id="about"></div>
+      <div class="col l2 s12 center-align">
+        <img class="intro card-panel" src="images/CunananIel2Onionhead.jpg" height="240" width="360">
+      </div>
+      <div class="col l5 offset-l5 s12 center-align">
+        <p class="intro left-align">I am an up-and-coming web developer from Inverness, FL. I am currently seeking an entry-level position with a goal to sharpen my skillset and grow within the tech industry.<br><br> I have an undying passion for learning new technologies and observing their impact through the latest trends that people experience!</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col l5 s12 center-align">
+        <p class="intro left-align">While away from coding and building sites, I enjoy spending time with close family and friends. I have a guilty pleasure for video gaming as a means of relaxation, whether playing Nintendo games or Phantasy Star Online. <br><br> I also enjoy drawing and getting lost in artbooks and sci-fi/fantasy settings to foster both creativity and inspiration. Some days I have a change of pace and turn to Yoga and outdoor exercising to balance my lifestyle.</p>
+      </div>
+      <div class="col l2 offset-l2 s12 center-align">
+        <img class="card-panel" src="images/FILE0021.JPG" height="240" width="360">
+      </div>
+    </div>
+  </div>   
+
+  <div class="container">
+  <div id="contact" class="section-header center-align">
+    <h3>Contact Info</h3>
+    <div class="divider"></div>
+  </div>
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <ul class="contact-info">
+          <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:352-246-7746">(352)-246-7746</a></li>
+          <li class="mail"><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ielcunanan8@gmail.com">ielcunanan8@gmail.com</a></li>
+          <li class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/iel-cunanan-47b136124/" target="_blank">LinkedIn Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer blue darken-4">
+    <div class="footer-copyright">
+      <div class="container">
+      © 2017 Copyright Iel Cunanan
+      </div>
+    </div>
+  </footer>
+  <div id="to_the_top"></div>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <script src="scripts/vendor.js"></script>
+    
+    <script src="scripts/main.js"></script>
+    </div>
+  </body>
+</html>
