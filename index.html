@@ -36,9 +36,10 @@
             <h4 class="tlt white-text">Front-end web developer / designer</h4>
           </div>
         </div>
-        <div id="nav">
+        <div class="non-mobile" id="nav">
+          <a href="javascript:void(0);" class="icon" onclick="toggleNav()">&#9776;</a>
           <ul>
-            <li><a class="waves-effect btn-large hoverable blue accent-3" href="#skill">Skill Set</a></li>
+            <li><a class="waves-effect btn-large hoverable blue accent-3" href="#skill">Skillset</a></li>
             <li><a class="waves-effect btn-large hoverable blue accent-3" href="#about">About</a></li>
             <li><a class="waves-effect btn-large hoverable blue accent-3" href="#gallery">Gallery</a></li>
             <li><a class="waves-effect btn-large hoverable blue accent-3" href="#contact">Contact</a></li>
@@ -50,11 +51,11 @@
   </div>
  
  <div id="skill" class="container section-header center-align">
-    <h3>Skill Set</h3>
+    <h3>Skillset</h3>
     <div class="divider"></div>
   </div>
   
-  <div class="container valign center-align">
+  <div id="chart" class="container valign center-align">
     <script type="text/javascript">
     var width,
         height,
@@ -68,8 +69,8 @@
         radius = Math.min(width, height) / 2;
     }
     else if (window.innerWidth > 499 && window.innerWidth < 992) {
-        width = 860;
-        height = 400;
+        width = window.innerWidth;
+        height = (window.innerWidth - 150);
         radius = Math.min(width, height) / 2;
     }
     else {
@@ -77,7 +78,7 @@
         height = 500;
         radius = Math.min(width, height) / 2;
     }
-    console.log(window.innerWidth);
+    //console.log(window.innerWidth);
     
 
     var color = d3.scale.ordinal()
@@ -133,7 +134,7 @@
       <div class="col l4 m6 s12">
         <div class="card">
             <div class="card-image">
-              <a href="finalproject.html"><img class="pieces" src="images/port_1resize.png"></a>
+              <a href="portfolio_piece1/finalproject.html"><img class="pieces" src="images/port_1resize.png"></a>
             </div>
             <div class="card-content">
               <p>Small animation displaying various objects according to user input.</p>
@@ -143,7 +144,7 @@
       <div class="col l4 m6 s12">
         <div class="card">
             <div class="card-image">
-              <a href="portfolio_piece4/animation_demo.html"><img class="pieces" src="images/port_2resize.png"></a>
+              <a href="portfolio_piece2/animation_demo.html"><img class="pieces" src="images/port_2resize.png"></a>
             </div>
             <div class="card-content">
               <p>Animated logo made with JavaScript and jQuery.</p>
@@ -177,7 +178,7 @@
     <div class="col l4 m6 s12">
       <div class="card">
           <div class="card-image">
-            <a href="portfolio_piece5a/index.html"><img class="pieces" src="images/port_5resize.png"></a>
+            <a href="portfolio_piece5/index.html"><img class="pieces" src="images/port_5resize.png"></a>
           </div>
           <div class="card-content">
             <p>First web application</p>

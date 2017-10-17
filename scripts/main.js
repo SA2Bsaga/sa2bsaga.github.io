@@ -42,6 +42,15 @@ $(document).ready(function () {
   });
 });
 
+function toggleNav() {
+  var x = document.getElementById("nav");
+  if (x.className === "non-mobile") {
+    x.className += " responsive";
+  } else {
+    x.className = "non-mobile";
+  }
+}
+
 $(function () {
   $('a[href*="#"]:not([href="#"])').click(function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
